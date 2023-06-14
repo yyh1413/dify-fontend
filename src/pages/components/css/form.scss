@@ -1,0 +1,17 @@
+.container {
+  height: 100%;
+  &_top {
+    padding: 10px 20px 20px 20px;
+    background: #fff;
+    border-radius: 5px;
+    h4{
+      margin-bottom: 10px;
+    }
+  }
+  &_bottom {
+    padding: 10px;
+    background: #fff;
+    height: calc(100vh - 190px);
+    border-radius: 5px;
+  }
+}

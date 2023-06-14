@@ -1,0 +1,57 @@
+//------------------- 头部导航---------------------------
+
+//------------------- 头部导航---------------------------
+//------------------- dialog---------------------------
+.center .el-dialog {
+  display: flex;
+  flex-direction: column;
+  margin: 0 !important;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-height: calc(100% - 30px);
+  max-width: calc(100% - 30px);
+}
+.center .el-dialog .el-dialog__body {
+  flex: 1;
+  overflow: auto;
+}
+//------------------- dialog---------------------------
+
+//-------------------  遮罩颜色-------------------
+.el-loading-mask {
+  background-color: rgba(255, 255, 255, 0.7);
+}
+// ------------------- 遮罩颜色-------------------
+
+//------------------- button-------------------
+// .el-button {
+//   display: flex;
+//   align-items: center;
+// }
+//------------------- button-------------------
+
+//------------------- table-------------------
+
+//------------------- table-------------------
+
+// -------------------修改 element ui 主题自定义颜色-------------------
+:root {
+  --el-color-primary: #476cec;
+ 
+}
+.el-dropdown-menu__item:not(.is-disabled):hover {
+  background-color: rgb(231, 231, 231);
+  color: #333;
+}
+// -------------------修改 element ui 主题自定义颜色-------------------
+
+.el-pagination .el-select .el-input {
+  width: 80px !important;
+}
+
+.el-button--primary.is-link {
+  font-weight: 400;
+  font-size: 12px;
+}
