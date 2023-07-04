@@ -4,7 +4,7 @@
       <Header></Header>
     </el-header>
     <el-container>
-      <el-aside width="200px" class="main-el-aside">
+      <el-aside :width="width" class="main-el-aside">
         <Menu></Menu>
       </el-aside>
       <el-main>
@@ -16,7 +16,7 @@
 
 
 <script lang="ts">
-import { computed, defineComponent } from "vue";
+import { computed, defineComponent, onMounted, ref } from "vue";
 import Menu from "@/layout/components/Menu.vue";
 import Header from "@/layout/components/headerMenu/Header.vue";
 import { useLogto } from "@logto/vue";
@@ -26,11 +26,23 @@ export default defineComponent({
   components: { Menu, Header },
   setup() {
     const { signOut, isAuthenticated, fetchUserInfo, signIn } = useLogto();
-
+    const screenWidth = window.innerWidth;
+    const width = ref(Number(screenWidth) < 768 ? "80px" : "200px");
+    onMounted(() => {
+      window.addEventListener("resize", function () {
+        const j = window.innerWidth;
+        console.log("当前屏幕宽度：" + j);
+        if (Number(j) < 768) {
+          width.value = "80px";
+        } else {
+          width.value = "200px";
+        }
+      });
+    });
     if (!isAuthenticated.value) {
       signIn(import.meta.env.VITE_APP_INDEX + "/callback");
     }
-    return { isAuthenticated };
+    return { isAuthenticated, width };
   },
 });
 </script>

@@ -4,7 +4,7 @@
     <!-- <button @click="onClickSignOut">Sign Out</button> -->
 
     <el-row :gutter="20">
-      <el-col :span="6" v-for="(c, i) in list" :key="i">
+      <el-col :xs="24" :sm="6" v-for="(c, i) in list" :key="i">
         <div class="item">
           <div class="dis_ac mb_10">
             <img class="mr_10" :src="c.icon" alt="" />
@@ -70,6 +70,7 @@ function handleListing(url: any) {
     box-shadow: 0px 0px 5px rgb(0, 0, 0, 0.1);
   }
   .item {
+    margin: 10px 0;
     padding: 20px;
     border-radius: 20px;
     box-shadow: 0px 0px 2px rgb(0, 0, 0, 0.1);

@@ -9,6 +9,7 @@
         background-color="#3C3D5D"
         text-color="#fff"
         active-text-color="#fff"
+        :collapse="isCollapse"
         router
         :ellipsis="false"
       >
@@ -40,7 +41,7 @@
 
 
 <script lang="ts">
-import { defineComponent, computed } from "vue";
+import { defineComponent, computed, ref, onMounted } from "vue";
 import { useRouter, useRoute, RouteRecordRaw } from "vue-router";
 import SubMenuList from "./headerMenu/Submenu.vue";
 import PersonalCenter from "./headerMenu/PersonalCenter.vue";
@@ -62,7 +63,19 @@ export default defineComponent({
   setup() {
     const router = useRouter();
     const route = useRoute();
-
+    const screenWidth = window.innerWidth;
+    const isCollapse = ref(Number(screenWidth) < 768 ? true : false);
+    onMounted(() => {
+      window.addEventListener("resize", function () {
+        const j = window.innerWidth;
+        console.log("当前屏幕宽度：" + j);
+        if (Number(j) < 768) {
+          isCollapse.value = true;
+        } else {
+          isCollapse.value = false;
+        }
+      });
+    });
     const routes = computed(() => {
       let roterArr: Array<RouteRecordRaw> = subRouteList;
 
@@ -88,6 +101,7 @@ export default defineComponent({
       route,
       dian,
       getIcon,
+      isCollapse,
     };
   },
 });
