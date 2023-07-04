@@ -8,7 +8,11 @@
         <div class="item">
           <div class="dis_ac mb_10">
             <img class="mr_10" :src="c.icon" alt="" />
-            <span class="title">{{ c.title }}</span>
+            <!-- <img :src="yonghuImg" />
+            <img src="../../assets/images/yonghu1.png" />
+            <img src="../../assets/yonghu2.png" /> -->
+
+            <span class="title els">{{ c.title }}</span>
           </div>
           <div class="mb_10 t1">{{ c.content }}</div>
           <div class="dis_ac mb_10 but cup" @click="handleListing(c.url)">
@@ -24,13 +28,7 @@ import { reactive, ref } from "vue";
 import { main } from "@/constants/config";
 import { useRouter, useRoute } from "vue-router";
 import { LISTING } from "@/constants/routerUrl";
-// import { useLogto } from "@logto/vue";
-// // console.log(useLogto);
-
-// const { signOut, isAuthenticated, fetchUserInfo, signIn } = useLogto();
-// const onClickSignOut = async () => {
-//   await signOut();
-// };
+import yonghuImg from "@/assets/images/yonghu.png";
 
 const route = useRoute();
 const router = useRouter();
@@ -56,6 +54,7 @@ function handleListing(url: any) {
 
   // padding: 20px;
   .title {
+    flex: 1;
     font-size: 16px;
     font-weight: 600;
   }

@@ -2,7 +2,7 @@
 <template>
   <div class="remind">
     <el-badge :value="12" class="item">
-      <img src="@/assets/images/system/small_bell.png" alt="" />
+      <!-- <img src="@/assets/images/system/small_bell.png" alt="" /> -->
     </el-badge>
   </div>
 </template>

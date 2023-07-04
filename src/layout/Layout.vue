@@ -1,5 +1,5 @@
 <template>
-  <el-container>
+  <el-container v-if="isAuthenticated">
     <el-header>
       <Header></Header>
     </el-header>
@@ -26,9 +26,11 @@ export default defineComponent({
   components: { Menu, Header },
   setup() {
     const { signOut, isAuthenticated, fetchUserInfo, signIn } = useLogto();
+
     if (!isAuthenticated.value) {
-      signIn("http://127.0.0.1:5173/callback");
+      signIn(import.meta.env.VITE_APP_INDEX + "/callback");
     }
+    return { isAuthenticated };
   },
 });
 </script>

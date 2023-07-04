@@ -7,14 +7,7 @@
   <el-dropdown size="medium" @command="dropdownChange">
     <div class="center">
       <span>{{ info.name }}</span>
-      <img
-        :src="
-          info.picture
-            ? info.picture
-            : '../../../../src/assets/images/yonghu.png'
-        "
-      />
-      <!-- <img src="@/assets/images/yonghu.png" /> -->
+      <img :src="info.picture ? info.picture : yonghu" />
     </div>
     <template #dropdown>
       <el-dropdown-menu>
@@ -34,10 +27,11 @@ import { authUtils } from "@/utils";
 import { useLogto } from "@logto/vue";
 import { userinfo } from "@/store/user"; //路径别名，引入store
 import { storeToRefs } from "pinia";
+import yonghu from "@/assets/images/yonghu.png";
+
 export default defineComponent({
   setup() {
     const { info } = userinfo();
-    console.log(info);
 
     const { signOut } = useLogto();
     // console.log(useLogto, signOut);
@@ -46,10 +40,10 @@ export default defineComponent({
 
     const dropdownChange = (e: any) => {
       if (e === "退出") {
-        signOut("http://127.0.0.1:5173/logout");
+        signOut(import.meta.env.VITE_APP_INDEX + "/logout");
       }
     };
-    return { dropdownChange, info };
+    return { dropdownChange, info, yonghu };
   },
 });
 </script>

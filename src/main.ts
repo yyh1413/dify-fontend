@@ -10,14 +10,16 @@ import "@/assets/style/element-style-reset.scss";
 import "@/assets/style/common.scss";
 import "@/assets/style/reset.css";
 import { createLogto, LogtoConfig } from "@logto/vue";
-
-const config: LogtoConfig = {
-  endpoint: "http://localhost:3001/",
-  appId: "b382ynyk8jh9i7xw10uci",
-};
-
 //pinia
 import store from "@/store";
+
+console.log(import.meta.env.VITE_APP_APPID);
+console.log(import.meta.env.VITE_APP_INDEX);
+console.log(import.meta.env.VITE_APP_ENDPOINT);
+const config: LogtoConfig = {
+  endpoint: import.meta.env.VITE_APP_ENDPOINT,
+  appId: import.meta.env.VITE_APP_APPID,
+};
 
 createApp(App)
   .use(createLogto, config)

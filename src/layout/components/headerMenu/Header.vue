@@ -2,10 +2,7 @@
 <template>
   <div class="header">
     <div class="header_left dis_ac">
-      <img
-        src="https://cloud.dify.ai/_next/static/media/logo.b3fb6116.png"
-        alt=""
-      />
+      <img :src="Logo" alt="" />
     </div>
     <PersonalCenter />
     <!-- <div class="header_right dis_ac">
@@ -18,11 +15,17 @@
 <script setup lang="ts">
 import { Fold, StarFilled } from "@element-plus/icons";
 import PersonalCenter from "./PersonalCenter.vue";
+import Logo from "../../../../public/logo.png";
 </script>
 
 
 <style lang="scss" scoped>
 .header {
+  .header_left {
+    img {
+      width: 150px;
+    }
+  }
   height: 100%;
   // background-color: $cbg;
   background-color: #fff;

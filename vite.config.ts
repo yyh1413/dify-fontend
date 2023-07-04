@@ -10,11 +10,11 @@ import { viteMockServe } from "vite-plugin-mock";
 export default defineConfig({
   plugins: [
     vue(),
-    viteMockServe({
-      supportTs: false,
-      mockPath: "./src/mock/", // 解析刚刚user.ts的位置
-      localEnabled: true, // 是否开启开发环境
-    }),
+    // viteMockServe({
+    //   supportTs: false,
+    //   mockPath: "./src/mock/", // 解析刚刚user.ts的位置
+    //   localEnabled: true, // 是否开启开发环境
+    // }),
     AutoImport({
       resolvers: [ElementPlusResolver()],
     }),

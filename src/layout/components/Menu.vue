@@ -24,7 +24,7 @@
               </el-icon> -->
               <img
                 :style="{ width: '25px' }"
-                class="mr_10"
+                class="mr_5"
                 :src="getIcon(item.path)"
                 alt=""
               />
